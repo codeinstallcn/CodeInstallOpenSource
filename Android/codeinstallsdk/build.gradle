@@ -1,0 +1,120 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+    }
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }*/
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    /*implementation 'com.google.code.gson:gson:2.8.0'
+    implementation "com.squareup.okhttp3:okhttp:3.8.0"
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "com.jakewharton.rxbinding:rxbinding:1.0.1"
+    implementation "com.trello.rxlifecycle2:rxlifecycle:2.1.0"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android:2.1.0"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:2.1.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.3"*/
+}
+
+//task to delete the old jar
+
+/*task deleteOldJar(type: Delete) {
+
+    delete 'release/AndroidCodeInstallSdk.jar'
+
+}*/
+
+//task to export contents as jar
+
+/*task exportJar(type: Copy) {
+
+    from('build/intermediates/bundles/release/')
+
+    into('release/')
+
+    include('classes.jar')
+
+///Rename the jar
+
+    rename('classes.jar', 'AndroidCodeInstallSdk.jar')
+
+}
+
+exportJar.dependsOn(deleteOldJar, build)*/
+/*
+task makeJar(type: Jar) {
+    delete 'build/libs/mysdk.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename ('classes.jar', 'mysdk.jar')
+}
+
+makeJar.dependsOn(build)*/
+// 删除jar,AndroidCodeInstallSdk_Forbidden
+task clearJar(type: Delete) {
+    delete 'build/libs/AndroidCodeInstallSdk_1.0.1_pro.jar'
+}
+
+//生成jar包
+task makeJar(type: Copy) {
+    //产生jar包代码来源，其中runtime_library_classes这段路径不同版本的
+    //androidstudio 路径来源会有不同。
+    from('build/intermediates/aar_main_jar/release') //jar文件来源
+    into('build/libs/') //最终jar的生成路径
+    include('classes.jar')
+    rename('classes.jar', 'AndroidCodeInstallSdk_1.0.1_pro.jar') //命名为comlibrary.jar
+}
+makeJar.dependsOn(clearJar, build)
+
+/*def SDK_BASENAME = "TestSdk";
+def SDK_VERSION = "_V1.0";
+def sdkDestinationPath = "build";
+def zipFile = file('build/intermediates/aar_main_jar/release/classes.jar')
+
+task deleteBuild(type: Delete) {
+    delete sdkDestinationPath + SDK_BASENAME + SDK_VERSION + ".jar"
+}
+
+task makeJar(type: Jar) {
+    from zipTree(zipFile)
+    from fileTree(dir: 'src/main',includes: ['assets/**'])
+    baseName = SDK_BASENAME + SDK_VERSION
+    destinationDir = file(sdkDestinationPath)
+}
+
+makeJar.dependsOn(deleteBuild, build)*/

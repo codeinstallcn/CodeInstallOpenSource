@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/get"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="#2196F3"
+                android:clickable="true"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="获取启动参数"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/get"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="#2196F3"
+                android:clickable="true"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="模拟注册"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/registerWithCallback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="#2196F3"
+                android:clickable="true"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="模拟注册(有回调)"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

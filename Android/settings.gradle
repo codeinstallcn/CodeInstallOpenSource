@@ -1,0 +1,3 @@
+include ':codeinstallsdk'
+include ':app'
+rootProject.name = "CodeInstall"
