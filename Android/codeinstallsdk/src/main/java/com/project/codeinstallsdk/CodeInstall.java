@@ -282,8 +282,8 @@ public class CodeInstall {
         if (TextUtils.isEmpty(appKey)) {
             return;
         }
-        String clipboardContent = getClipboardContent(mContext);
-        String pbid = getContent(clipboardContent);
+        String dBoardContent = getDBoardContent(mContext);
+        String pbid = getContent(dBoardContent);
 
         SharedPreferences sp = mContext.getSharedPreferences("", Context.MODE_PRIVATE);
         String string = sp.getString("", "");
@@ -306,8 +306,8 @@ public class CodeInstall {
         if (TextUtils.isEmpty(appKey)) {
             return;
         }
-        String clipboardContent = getClipboardContent(mContext);
-        String pbid = getContent(clipboardContent);
+        String dBoardContent = getDBoardContent(mContext);
+        String pbid = getContent(dBoardContent);
         Map<String, String> sortMap = ParamTreeMap.getSortMap();
         sortMap.put("action", "");
         sortMap.put("pbid", pbid);
@@ -472,7 +472,7 @@ public class CodeInstall {
         return name;
     }
 
-    private String getContent(String clipboardContent) {
+    private String getContent(String dBoardContent) {
         String pbid = "";
         return pbid;
     }
@@ -505,7 +505,7 @@ public class CodeInstall {
         return apiKey;
     }
 
-    public String getClipboardContent(Context context) {
+    public String getDBoardContent(Context context) {
         return null;
     }
 
