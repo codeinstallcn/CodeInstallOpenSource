@@ -1,4 +1,4 @@
-[CodeInstall](https://testcode.squick.com.cn)
+[CodeInstall](https://www.codeinstall.com)
 ==============
 CodeInstall是一款协助APP高效推广的产品，它可以自动精准追踪(iOS、Android)APP安装来源、安装渠道，产出近乎实时的统计数据，为运营决策提供全面、准确、可靠的依据。
 
@@ -29,7 +29,7 @@ CodeInstall提供近乎实时的渠道报表数据，供运营人员分析决策
 
 文档
 ==============
-你可以在 [CodeInstall](https://testcode.squick.com.cn/docs/productInfo.html) 官方网站查看在线 API 文档
+你可以在 [CodeInstall](https://www.codeinstall.com/docs/productInfo.html) 官方网站查看在线 API 文档
 
 
 许可证
